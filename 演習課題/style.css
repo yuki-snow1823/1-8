@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}/*いつものやつ*/
+
+main{
+  width: 960px;
+  margin: 50px auto;
+}/*全体のサイズを指定(一番上と一番下！）、上下は余白50、左右はauto*/
+
+.list{
+  margin-bottom: 50px;
+}/*リストと下のブロックのつなぎ目*/
+.list-item{
+  padding: 20px;/*要素の内側のの余白だからpadding*/
+  list-style: none;
+}
+
+.list-item:nth-child(odd){
+  background-color: #eee;
+}
+
+/*ここまではできた*/
+
+.box{
+  background-color: #ffd700;
+  width: 30%;
+  height: 200px;
+  float: left; /*これをしなかったせいで、ぴったり100%のとき下にまわった*/
+  margin-right: 5%;
+  margin-bottom: 40px;
+}
+
+.box:first-child,
+.box:last-child,
+.box:nth-child(5){
+  background-color: #ff8c00; /*最初と最後と真ん中を色変え、子要素だからchild*/
+}
+
+.box:nth-child(3n){
+  margin-right: 0; /*全体にmarginをつけて、倍数、特定のものだけ消すという発想！！！！*/
+}
+
+.box:nth-last-child(-n+3){/*式も入れられる、最後から数えて、、、という意味*/
+  margin-bottom: 0;
+}
